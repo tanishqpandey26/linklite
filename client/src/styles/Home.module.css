@@ -1,0 +1,50 @@
+:root {
+  --sidebar-expanded: 256px;
+  --sidebar-collapsed: 76px;
+}
+
+.dashboardLayout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; 
+}
+
+.mainContent {
+  flex: 1;
+  padding: 1rem;
+  transition: margin-left 0.3s ease;
+}
+
+/* Desktop*/
+@media (min-width: 1024px) {
+  .dashboardLayout {
+    flex-direction: row;
+  }
+
+  .mainContent {
+    margin-left: var(--sidebar-expanded);
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .dashboardLayout {
+    flex-direction: row;
+  }
+
+  .mainContent {
+    margin-left: var(--sidebar-collapsed);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  .dashboardLayout {
+    flex-direction: column;
+  }
+
+  .mainContent {
+    margin-left: 0;
+    padding: 0.75rem;
+  }
+}
