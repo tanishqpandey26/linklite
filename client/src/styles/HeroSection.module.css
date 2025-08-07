@@ -1,0 +1,133 @@
+.heroSection {
+  color: #000;
+  padding: 3rem 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.instructions {
+  text-align: left;
+  margin: 2rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+}
+
+.instructions h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: #000;
+}
+
+.instructions ul {
+  padding-left: 1.2rem;
+}
+
+.instructions li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  background-color: #000;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.buttonAlt {
+  background: transparent;
+  border: 2px solid #000;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.buttonAlt:hover {
+  transform: scale(1.05);
+  color: #000;
+}
+
+.intro h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.socialLinks a {
+  color: #000;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.socialLinks a:hover {
+  transform: scale(1.2);
+  color: #000;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .instructions {
+    font-size: 0.95rem;
+  }
+
+  .socialLinks {
+    gap: 1rem;
+  }
+}
