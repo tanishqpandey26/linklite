@@ -29,7 +29,7 @@ function HeroSection() {
         </div>
 
         <div className={styles.buttonGroup}>
-          <a href="/signin" className={styles.button}>Sign In</a>
+          <a href="/login" className={styles.button}>Login</a>
           <a href="/signup" className={styles.buttonAlt}>Sign Up</a>
         </div>
 

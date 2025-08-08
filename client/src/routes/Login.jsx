@@ -1,60 +1,70 @@
 import React, { useState } from 'react';
-import "../styles/SignUpStyles.css";
+import "../styles/LoginStyles.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import {handleError,handleSuccess} from "../utils";
 import Sidebar from "../components/Sidebar";
 
-function SignUp() {
+function Login() {
 
-    const [signupInfo, setSignupInfo]= useState({
-        name:'',
+    const [loginInfo, setLoginInfo]= useState({
         email:'',
         password:''
     })
 
+    
     const navigate = useNavigate();
 
     const handleChange =(e)=>{
 
         const {name,value}= e.target;
-        const copySignupInfo={...signupInfo};
 
-        copySignupInfo[name]=value;
+        // console.log(name,value);
 
-        setSignupInfo(copySignupInfo);
+        const copyLoginInfo={...loginInfo};
+
+        copyLoginInfo[name]=value;
+
+        setLoginInfo(copyLoginInfo);
     }
 
-    const handleSignup=async(e)=>{
+
+    const handleLogin=async(e)=>{
 
         e.preventDefault();
 
-        const {name,email,password}=signupInfo;
+        const {email,password}=loginInfo;
 
-        if(!name || !email || !password){
+        if(!email || !password){
 
             return handleError('All fields are mandatory')
         }
 
         try {
-            const url = "http://localhost:5000/";
+            const url = "http://localhost:5000";
 
             const response = await fetch(url,{
                 method:"POST",
                 headers:{
                     'Content-Type':"application/json"
                 },
-                body:JSON.stringify(signupInfo)
+                body:JSON.stringify(loginInfo)
             });
 
             const result = await response.json();
 
-            const {success,message,error}=result;
+            const {success,message,jwtToken,name,error}=result;
 
             if(success){
+
                 handleSuccess(message);
+
+                localStorage.setItem('token',jwtToken);
+
+                localStorage.setItem('loggedInUser',name);
+
                 setTimeout(()=>{
-                    navigate('/login')
+                    navigate('/loggeduserpage')
                 },1000)
 
             } else if(error){
@@ -68,71 +78,58 @@ function SignUp() {
                 handleError(message);
             }
 
-            console.log(result);
         }
         catch(err){
             handleError(err);
         }
     }
     
-  return (
-    <>
 
-    <Sidebar />
-    <div className="container">
+
+
+  return (
+   <>
+   <Sidebar/>
+   <div className="container">
             <div className="wrapper">
                 <div className="title">
-                    <span>Join us</span>
+                    <span>Welcome back</span>
                 </div>
                 <p className="title_para">
-                    Please enter your details to sign up.
+                    Please enter your details to sign in.
                 </p>
 
-                <form onSubmit={handleSignup}>
+                <form onSubmit={handleLogin}>
 
                     <div className="row">
                         <input 
-                        onChange={handleChange}type="text" 
-                        autoFocus
-                        placeholder="Name" 
-                        name='name'
-                        value={signupInfo.name}/>
+                        onChange={handleChange}type="email"
+                        name='email' placeholder="Email"
+                        value={loginInfo.email}  />
                     </div>
 
                     <div className="row">
                         <input 
-                         onChange={handleChange}type="email"placeholder="Email" 
-                        name='email'
-                         value={signupInfo.email} />
-                    </div>
-
-                    <div className="row">
-                        <input 
-                         onChange={handleChange}type="password" 
-                        placeholder="Password" 
+                        onChange={handleChange}type="password" placeholder="Password"
                         name='password'
-                        value={signupInfo.password} />
+                        value={loginInfo.password} />
                     </div>
 
+                    <div className="pass">
+                    </div>
                     <div className="row button">
-                        <button
-                        type='submit'>
-                            Sign Up
-                        </button>
+                        <input type="submit" value="Login" />
                     </div>
-
                     <div className="signup-link">
-                    <span>Already have an account? <Link to="/login">Login</Link></span>
+                        <span>Not a member? <Link to="/signup">Sign Up</Link></span>
                     </div>
                 </form>
-
-                <ToastContainer/>
             </div>
-        </div> 
+        </div>
 
-        </>
-    
+        <ToastContainer/>
+   </>
   )
 }
 
-export default SignUp;
+export default Login;
