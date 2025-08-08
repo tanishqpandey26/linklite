@@ -9,6 +9,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 const NAV_ITEMS = [
   { key: "home", label: "Home", to: "/", Icon: MdOutlineDomainVerification },
+  { key: "signin", label: "Sign In", to: "/signin", Icon: FaSignInAlt },
+  { key: "signup", label: "Sign Up", to: "/signup", Icon: RiLoginBoxFill },
 ];
 
 function SidebarNav({ showLabels, onItemClick }) {
