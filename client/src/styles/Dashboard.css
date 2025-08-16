@@ -1,0 +1,137 @@
+.dboardHeaderContainer {
+  display: flex;
+  gap: 20px;
+  padding: 1rem;
+  background-color: #EFFCFE;
+}
+
+@media (max-width: 768px) {
+   .dboardHeaderContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* user  */
+.dboardHeaderUser {
+  flex: 34%;
+  display: flex;
+  flex-direction: column;
+  background-color: #EFFCFE;
+  color:#000;
+  border:2px solid #282828;
+  border-radius: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height:auto;
+}
+
+
+.dboardHeaderUserTopLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dBoardWebName {
+  font-size: 34px;
+  font-weight: bold;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  color: #1e40af;
+}
+
+.webIcon {
+  color: #1e40af;
+  padding: 5px;
+}
+
+.dboardLogoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #000;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  width: auto;
+  text-align: center;
+}
+
+.dboardLogoutBtn:hover {
+  background: #222;
+}
+
+
+.dboardHeaderUserName {
+  font-size: 24px;
+  font-weight: 600;
+  color:#000;
+  padding-bottom: 10px;
+}
+
+.dboardHeaderUserName span {
+  color:#10b981;
+}
+
+.dboardCurrDate {
+  font-size: 16px;
+  font-weight: 400;
+  color: #424242;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .dboardHeaderUser {
+    flex: none;
+    width: 90%;
+    height: auto;
+  }
+
+  .dBoardWebName {
+  font-size: 24px;
+}
+
+.dboardLogoutBtn {
+  font-size: 12px;
+}
+
+.dboardHeaderUserName {
+  font-size: 20px;
+  font-weight: 600;
+  color:#000;
+  padding-bottom: 5px;
+}
+
+.dboardCurrDate {
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+}
+
+/* user insights */
+.dboardHeaderUserInsights {
+  flex: 0 0 51%;
+  background-color: #EFFCFE;
+  color:#000;
+  padding: 1rem;
+  border-radius: 10px;
+  border:2px solid #000;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+
+  .dboardHeaderUserInsights {
+    flex: none;
+    width: 90%;
+  }
+}

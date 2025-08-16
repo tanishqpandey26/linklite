@@ -41,7 +41,7 @@ function Login() {
         }
 
         try {
-            const url = "http://localhost:5000";
+            const url = "http://localhost:8080/auth/login";
 
             const response = await fetch(url,{
                 method:"POST",
@@ -64,7 +64,7 @@ function Login() {
                 localStorage.setItem('loggedInUser',name);
 
                 setTimeout(()=>{
-                    navigate('/loggeduserpage')
+                    navigate('/dashboard')
                 },1000)
 
             } else if(error){

@@ -15,7 +15,3 @@ function Home() {
 }
 
 export default Home;
-
-{/* <div className={styles.mainContent}>
-    
-      </div> */}

@@ -37,7 +37,7 @@ function SignUp() {
         }
 
         try {
-            const url = "http://localhost:5000/";
+            const url = "http://localhost:8080/auth/signup";
 
             const response = await fetch(url,{
                 method:"POST",
